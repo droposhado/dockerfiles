@@ -16,9 +16,9 @@ RUN apk --update add \
 RUN cd $HOME && \
   curl -sL https://github.com/edgewall/trac/archive/trac-$TRAC_VERSION.zip -o $HOME/trac-$TRAC_VERSION.zip && \
   unzip trac-$TRAC_VERSION.zip && \
-  cd trac-$trac_version/ && \
+  cd trac-trac-$TRAC_VERSION/ && \
   python ./setup.py install_lib && \
-  rm -Rf $HOME/trac-$trac_version/
+  rm -Rf $HOME/trac-$TRAC_VERSION/
 
 # https://trac.edgewall.org/browser/trunk/INSTALL.rst
 # RUN pip install -u \
