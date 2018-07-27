@@ -10,6 +10,7 @@ RUN apk --update add \
     curl \
     openssl \
     python2 \
+    python2-dev \
     py2-pip \
     && rm -rf /var/cache/apk/*
 
@@ -26,7 +27,7 @@ RUN cd $HOME && \
 #   textile \
 #   https://github.com/edgewall/trac/archive/trac-$TRAC_VERSION.zip
 
-RUN pip install -u \
+RUN pip install -U \
   pytz \
   py2-gunicorn \
   py2-docutils
