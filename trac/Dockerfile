@@ -29,8 +29,8 @@ RUN cd $HOME && \
 
 RUN pip install -U \
   pytz \
-  py2-gunicorn \
-  py2-docutils
+  gunicorn \
+  docutils
 
 WORKDIR $TRAC_ENV
 VOLUME $TRAC_ENV
