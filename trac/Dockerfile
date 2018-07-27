@@ -5,10 +5,10 @@ MAINTAINER Flaverton Rodrigues Rosa <flavertonrodrigues@gmail.com>
 ENV TRAC_ENV /var/trac
 ENV TRAC_VERSION 1.2.2
 
-
-    # New trac plugins must be added to this base image and not later,
-    # this ensures that the image is small and has fewer packages installed.
-RUN apk --update add \
+# New trac plugins must be added to this base image and not later,
+# this ensures that the image is small and has fewer packages installed.
+RUN apk update && \
+    apk --update add \
     build-base \
     curl \
     openssl \
@@ -31,10 +31,6 @@ RUN apk --update add \
     build-base \
     openssl \
     python2-dev
-
-
-
-
 
 WORKDIR $TRAC_ENV
 VOLUME $TRAC_ENV
