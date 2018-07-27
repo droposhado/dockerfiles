@@ -7,6 +7,7 @@ ENV TRAC_VERSION 1.2.2
 
 RUN apk --update add \
     build-base \
+    curl \
     openssl \
     python2 \
     py2-pip \
