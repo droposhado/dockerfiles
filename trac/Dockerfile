@@ -40,5 +40,7 @@ COPY docker-entrypoint.sh $TRAC_ENV
 
 EXPOSE 9000
 
-ENTRYPOINT ["trac-admin"]
-CMD ["docker-entrypoint.sh"]
+# ENTRYPOINT ["trac-admin"]
+# CMD ["docker-entrypoint.sh"]
+
+ENTRYPOINT ["docker-entrypoint.sh"]
