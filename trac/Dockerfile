@@ -2,7 +2,6 @@ FROM alpine:3.7
 
 MAINTAINER Flaverton Rodrigues Rosa <flavertonrodrigues@gmail.com>
 
-ENV TRAC_ENV /var/trac
 ENV TRAC_VERSION 1.2.2
 
 # New trac plugins must be added to this base image and not later,
@@ -32,11 +31,11 @@ RUN apk update && \
     openssl \
     python2-dev
 
-WORKDIR $TRAC_ENV
-VOLUME $TRAC_ENV
+WORKDIR /var/trac
+VOLUME /var/trac
 
-COPY wsgi.py $TRAC_ENV
-COPY docker-entrypoint.sh $TRAC_ENV
+COPY wsgi.py /var/trac
+COPY docker-entrypoint.sh /var/trac
 
 EXPOSE 9000
 
