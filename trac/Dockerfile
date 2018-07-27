@@ -33,6 +33,15 @@ RUN pip install -U \
   gunicorn \
   docutils
 
+# New trac plugins must be added to this base image and not later,
+# this ensures that the image is small and has fewer packages installed.
+RUN apk del \
+    build-base \
+    openssl \
+    python2-dev
+
+
+
 WORKDIR $TRAC_ENV
 VOLUME $TRAC_ENV
 
