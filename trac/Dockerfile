@@ -28,6 +28,7 @@ RUN cd $HOME && \
 #   https://github.com/edgewall/trac/archive/trac-$TRAC_VERSION.zip
 
 RUN pip install -U \
+  pip \
   pytz \
   gunicorn \
   docutils
