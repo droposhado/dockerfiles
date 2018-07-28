@@ -43,3 +43,5 @@ EXPOSE 9000
 # CMD ["docker-entrypoint.sh"]
 
 #ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
+#ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
+ENTRYPOINT ["bash"]
