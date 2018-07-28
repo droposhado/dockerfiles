@@ -34,12 +34,12 @@ RUN apk update && \
 WORKDIR /var/trac
 #VOLUME /var/trac
 
-COPY wsgi.py /var/trac
-COPY docker-entrypoint.sh /var/trac
+COPY wsgi.py /usr/local/bin
+COPY docker-entrypoint.sh /usr/local/bin
 
 EXPOSE 9000
 
 # ENTRYPOINT ["trac-admin"]
 # CMD ["docker-entrypoint.sh"]
 
-ENTRYPOINT ["/var/trac/docker-entrypoint.sh"]
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
