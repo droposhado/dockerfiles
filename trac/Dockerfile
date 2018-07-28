@@ -42,4 +42,4 @@ EXPOSE 9000
 # ENTRYPOINT ["trac-admin"]
 # CMD ["docker-entrypoint.sh"]
 
-ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
+#ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
