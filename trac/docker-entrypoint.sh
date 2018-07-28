@@ -1,19 +1,21 @@
 #!/bin/bash
 set -eu
 
+
+
 setup_trac() {
 
-    trac-admin $TRAC_ENV initenv $TRAC_PROJECT_NAME $DB_URI
-    trac-admin $TRAC_ENV config set logging log_type stderr
+    trac-admin /var/trac initenv $TRAC_PROJECT_NAME $DB_URI
+    trac-admin /var/trac config set logging log_type stderr
 
 }
 
 setup_email() {
 
-    trac-admin $TRAC_ENV config set notification smtp_server $SMTP_SERVER
-    trac-admin $TRAC_ENV config set notification smtp_port $SMTP_PORT
-    trac-admin $TRAC_ENV config set notification smtp_user $SMTP_USER
-    trac-admin $TRAC_ENV config set notification smtp_password $SMTP_PASSWORD
+    trac-admin /var/trac config set notification smtp_server $SMTP_SERVER
+    trac-admin /var/trac config set notification smtp_port $SMTP_PORT
+    trac-admin /var/trac config set notification smtp_user $SMTP_USER
+    trac-admin /var/trac config set notification smtp_password $SMTP_PASSWORD
 
 }
 
@@ -21,7 +23,7 @@ setup_admin() {
 
   if [ ! -d "/var/trac/users" ]; then
     ADMIN_PASS_HASH ="$(openssl passwd -apr1 TRAC_ADMIN_PASS)"
-    trac-admin $TRAC_ENV permission add $TRAC_ADMIN_USER TRAC_ADMIN
+    trac-admin /var/trac permission add $TRAC_ADMIN_USER TRAC_ADMIN
     echo "$TRAC_ADMIN_USER:$ADMIN_PASS_HASH" >> /var/trac/users
   fi
 
@@ -36,8 +38,8 @@ setup_components() {
 
 reload_project_info() {
 
-    trac-admin $TRAC_ENV config set project name $TRAC_PROJECT_NAME
-    trac-admin $TRAC_ENV config set project descr $TRAC_PROJECT_DESC
+    trac-admin /var/trac config set project name $TRAC_PROJECT_NAME
+    trac-admin /var/trac config set project descr $TRAC_PROJECT_DESC
 
     # TODO
     #   - Download new logo from URL

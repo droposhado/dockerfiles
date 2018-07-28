@@ -32,7 +32,7 @@ RUN apk update && \
     python2-dev
 
 WORKDIR /var/trac
-VOLUME /var/trac
+#VOLUME /var/trac
 
 COPY wsgi.py /var/trac
 COPY docker-entrypoint.sh /var/trac
