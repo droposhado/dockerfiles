@@ -1,0 +1,20 @@
+language: go
+os: linux
+dist: bionic
+
+go:
+  - 1.x
+
+env:
+  - DOCKFMT_SHA256="f6bc025739cf4f56287e879c75c11cc73ebafdf93a57c9bcd8805d1ab82434a0"
+
+before_install:
+  - curl -fSL "https://github.com/jessfraz/dockfmt/releases/download/v0.3.3/dockfmt-linux-amd64" -o "dockfmt"
+  - sudo mv dockfmt /usr/local/bin/dockfmt
+  - echo "${DOCKFMT_SHA256}  /usr/local/bin/dockfmt" | sha256sum -c -
+  - sudo chmod a+x "/usr/local/bin/dockfmt"
+
+script:
+  - dockfmt fmt -d */Dockerfile
+  - dockfmt maintainer */Dockerfile
+  - dockfmt base */Dockerfile
